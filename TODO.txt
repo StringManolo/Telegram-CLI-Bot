@@ -1,0 +1,4 @@
+TODO:  
+Lista de cosas interesantes para añadir:  
+- Abrir procesos en nuevos hilos.  
+- Añadir modo un solo user loggeado por cli.  
