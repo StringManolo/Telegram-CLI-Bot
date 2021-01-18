@@ -21,3 +21,18 @@ qjs tgbot.js -l -v
 qjsc -o tgbot tgbot.js && cp tgbot ~/../usr/bin/  
   
 tgbot -l -w 2 -v  
+
+### telegram chat commands
+```
+/help
+/login
+
+/run
+/js
+/c++
+/python
+/wait
+/shutdown
+```
+
+To log in, first write /login and then write the password in a new message.
