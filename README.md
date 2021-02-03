@@ -3,7 +3,7 @@ A Quickjs/Node.js console bot to control devices from telegram.
 
 ### cli 
 ```
-usage: qjs tgbot [options]  
+usage: qjs/node tgbot [options]  
   -t  --token            Telegram Bot Api Token. https://t.me/BotFather  
   -s  --save             Save the token internally to start the bot in the future without manually provide the token each time.  
   -l  --load             Use the saved token to start the bot.  
