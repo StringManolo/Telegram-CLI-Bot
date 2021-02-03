@@ -1,7 +1,15 @@
 # Telegram-CLI-Bot
 A Quickjs/Node.js console bot to control devices from telegram.
 
-### cli 
+### Download
+git clone https://github.com/StringManolo/Telegram-CLI-Bot.git
+
+### Install Termux
+pkg install quickjs && qjs tgbot.js
+
+
+
+### Run
 ```
 usage: qjs/node tgbot [options]  
   -t  --token            Telegram Bot Api Token. https://t.me/BotFather  
