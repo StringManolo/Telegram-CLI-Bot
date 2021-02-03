@@ -1,0 +1,63 @@
+const fs = require("fs");
+const exec = require("child_process");
+
+exports.std = () => {
+  let internal = {};
+
+  global.scriptArgs = process.argv;
+
+  internal.exit = (exitCode = 0) => process.exit(exitCode);
+  internal.evalScript = (code) => eval(code);
+  internal.loadFile = filename => {
+    try {
+      filename = fs.readFileSync(filename, { encoding: "utf-8" })
+    } catch(e) {
+      filename = null;
+    }
+    return filename;
+  };
+
+  /* TODO: Global eval */
+  //internal.loadScript = filename => eval(loadFile(filename));
+
+  internal.open = (filename, mode) => {
+    let fd = {};
+    fd.internalFd = fs.openSync(filename, mode);
+    fd.read = (buffer, position, len) => fs.readSync(fd.internalFd, buffer, position, len);
+    fd.puts = (str) => fs.writeSync(fd.internalFd, str);
+    fd.close = () => fs.closeSync(fd.internalFd);
+    return fd;
+  }
+
+  internal.close = fd => fs.closeSync(fd); 
+
+  internal.run = (args) => {
+    let res = exec.execSync(args).toString()
+    return res;
+  };
+
+  internal.in = {};
+  internal.in.getline = () => {
+    let rtnval = "";
+    let buffer = Buffer.alloc ? Buffer.alloc(1) : new Buffer(1);
+    for(;;) {
+      fs.readSync(0, buffer, 0, 1);
+      if(buffer[0] === 10) {
+        break;
+      } else if(buffer[0] !== 13) {
+        rtnval += new String(buffer);
+      }
+    }
+    return rtnval;
+}
+
+  global.encodeURIComponent = args => encodeURI(args);
+  global.decodeURIComponent = args => decodeURI(args);
+
+  internal.sleep = ms => {
+    internal.run(`sleep ${ms/1000}`);
+  }
+
+  return internal;
+};
+
