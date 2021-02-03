@@ -1,5 +1,5 @@
 # Telegram-CLI-Bot
-A QJS program to control devices from telegram.
+A Quickjs/Node.js console bot to control devices from telegram.
 
 ### cli 
 ```
@@ -13,15 +13,20 @@ usage: qjs tgbot [options]
   -w  --wait             Bot delay in seconds. (Can process multiple messages at once, so you don't need a really low number to don't fallback).  
 ```
   
-### examples
-qjs tgbot.js -t 192829292:iqidkwiexampleunvalidtokeniwjwusjwis -s -v  
+### examples quickjs
+qjs tgbot.js -t 192829292:iqidkwiexampleunvalidtokeniwjwusjwis -s -v -p miPasswordToLogin
   
-qjs tgbot.js -l -v  
+qjs tgbot.js -l -v -p miPasswordToLogin
   
 qjsc -o tgbot tgbot.js && cp tgbot ~/../usr/bin/  
   
-tgbot -l -w 2 -v  
+tgbot -l -w 8 -v -p miPasswordToLogin
 
+### examples node
+node tgbot.js -t 192829292:iqidkwiexampleunvalidtokeniwjwusjwis -s -v -p miPasswordToLogin
+  
+node tgbot.js -l -v -w 8 -p miPasswordToLogin
+  
 ### telegram chat commands
 ```
 /help
