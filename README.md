@@ -1,6 +1,10 @@
 # Telegram-CLI-Bot
 A Quickjs/Node.js console bot to control devices from telegram.
 
+## Notice
+This project is more complete. Is a full rewrite:  
+https://github.com/StringManolo/nbmxbsf  
+  
 ### Download
 git clone https://github.com/StringManolo/Telegram-CLI-Bot.git
 
